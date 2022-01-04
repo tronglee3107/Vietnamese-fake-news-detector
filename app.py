@@ -1,6 +1,8 @@
 import streamlit as st
 import pickle
 import re
+import warnings
+warnings.filterwarnings('ignore')
 
 # get Vietnamese stop word
 stop_word = []
