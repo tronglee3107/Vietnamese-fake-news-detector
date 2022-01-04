@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import re
+import requests
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -25,6 +26,10 @@ def preprocess(a):
             a=a.replace(temp,' ')
     return a
 
+@st.cache(allow_output_mutation=True)
+def load_session():
+    return requests.Session()
+
 def main():
     st.set_page_config(
         page_title="Vietnamese fake news detector",
@@ -34,7 +39,7 @@ def main():
 
 
     st.header(":newspaper: Fake news detection for Vietnamese")
-
+    sess = load_session()
     #load models
     model_1="models/PassiveAgressive.pkl"
     model_pac= pickle.load(open(model_1, 'rb'))
