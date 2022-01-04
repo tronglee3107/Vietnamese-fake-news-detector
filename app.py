@@ -1,7 +1,6 @@
 import streamlit as st
 import pickle
 import re
-from sklearn.feature_extraction.text import TfidfVectorizer
 
 # get Vietnamese stop word
 stop_word = []
